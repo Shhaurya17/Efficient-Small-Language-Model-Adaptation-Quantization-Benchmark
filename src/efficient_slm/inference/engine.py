@@ -40,7 +40,7 @@ def generate(model, tokenizer, prompt, max_new_tokens=256):
 
 
 def measure_vram(model):
-    if not torch.cuda.is_available():
+    if model.device.type != "cuda":
         return {"peak_vram_gb": None, "allocated_vram_gb": None}
     torch.cuda.synchronize()
     return {
@@ -54,7 +54,7 @@ def measure_latency(model, tokenizer, batch_size=1, seq_length=256, num_samples=
     inputs = tokenizer([prompt] * batch_size, return_tensors="pt", truncation=True, max_length=seq_length)
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
 
-    if torch.cuda.is_available():
+    if model.device.type == "cuda":
         torch.cuda.reset_peak_memory_stats(model.device)
         torch.cuda.synchronize()
 
