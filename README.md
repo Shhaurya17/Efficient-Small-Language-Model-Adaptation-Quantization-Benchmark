@@ -68,6 +68,6 @@ If you use this project, please cite:
   title={Efficient Small Language Model Adaptation & Quantization Benchmark},
   author={[Your Name]},
   year={2026},
-  url={https://github.com/[username]/efficient-slm-benchmark}
+  url={https://github.com/Shhaurya17/Efficient-Small-Language-Model-Adaptation-Quantization-Benchmark}
 }
 ```
