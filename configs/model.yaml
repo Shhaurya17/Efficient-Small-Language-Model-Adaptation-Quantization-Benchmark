@@ -1,0 +1,8 @@
+model_name: "Qwen/Qwen2.5-1.5B-Instruct"
+device_map: "auto"
+torch_dtype: "float16"
+load_in_4bit: false  # Set to true only for inference
+quantization_config:
+  bnb_4bit_compute_dtype: "float16"
+  bnb_4bit_use_double_quant: true
+  bnb_4bit_quant_type: "nf4"

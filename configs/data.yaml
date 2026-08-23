@@ -1,0 +1,15 @@
+dataset_name: "OpenAssistant"
+subset: null
+split_ratio:
+  train: 0.8
+  val: 0.2
+  test: 0.0  # Use held-out evals only
+dataset_size: 5000
+max_seq_length: 2048
+chat_template: "alpaca"  # or "qwen" or "default"
+preprocessing:
+  remove_duplicates: true
+  min_length: 10
+  max_length: 2048
+raw_dir: "data/raw"
+processed_dir: "data/processed"

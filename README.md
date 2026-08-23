@@ -1,0 +1,73 @@
+# Efficient Small Language Model Adaptation & Quantization Benchmark
+
+A systematic study of QLoRA fine-tuning and 4-bit quantization for small language models.
+Measures the quality-efficiency trade-offs across **MMLU, ARC, GSM8K, HellaSwag**.
+
+> Status: repository scaffold only. Results below will be filled in after training,
+> quantization, and evaluation are run (see `reports/results.md`).
+
+## Research Questions
+
+- **RQ1**: How much does LoRA rank affect SFT quality vs trainable parameters?
+- **RQ2**: What quality is lost in 4-bit quantization?
+- **RQ3**: What is the efficiency gain (VRAM/latency) per quality point?
+- **RQ4**: How does inference throughput scale across checkpoints?
+
+## Key Results
+
+_To be filled in after Phase 7/8 (evaluation + analysis)._
+
+| Checkpoint | MMLU | ARC | GSM8K | HellaSwag | VRAM | Throughput |
+|-----------|------|-----|-------|-----------|------|-----------|
+| Base (Qwen2.5-1.5B) | TBD | TBD | TBD | TBD | TBD | TBD |
+| SFT-R8 | TBD | TBD | TBD | TBD | TBD | TBD |
+| 4-bit SFT-R8 | TBD | TBD | TBD | TBD | TBD | TBD |
+
+## Quick Start
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Download data
+python data/scripts/download_data.py
+
+# 3. Run training
+python -m efficient_slm.training.trainer --config configs/train.yaml --lora_rank 8
+
+# 4. Merge + quantize model
+python -m efficient_slm.quantization.merge --lora_rank 8
+python -m efficient_slm.quantization.gptq --model outputs/merged_r8 --output outputs/quantized_r8
+
+# 5. Evaluate
+python -m efficient_slm.evaluation.benchmark --model outputs/quantized_r8 --benchmarks mmlu arc gsm8k hellaswag
+```
+
+## Repository Structure
+
+- `configs/`: YAML configurations for all experiments
+- `data/`: Data loading and preprocessing
+- `src/efficient_slm/`: Training, quantization, inference, evaluation modules
+- `notebooks/`: End-to-end workflows (00-07)
+- `eval/`: Benchmark results
+- `reports/`: Analysis and findings
+- `figures/`: Visualizations
+
+## Hardware & Compute
+
+- GPU: NVIDIA T4 (16GB VRAM) or A100 (Colab)
+- Max training budget: 24 GPU hours total
+- Inference: single GPU sufficient for all benchmarks
+
+## Citation
+
+If you use this project, please cite:
+
+```bibtex
+@misc{efficient-slm-benchmark,
+  title={Efficient Small Language Model Adaptation & Quantization Benchmark},
+  author={[Your Name]},
+  year={2026},
+  url={https://github.com/[username]/efficient-slm-benchmark}
+}
+```

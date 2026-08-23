@@ -1,0 +1,16 @@
+benchmarks:
+  - name: "mmlu"
+    num_fewshot: 5
+    batch_size: 16
+  - name: "arc"
+    num_fewshot: 5
+    batch_size: 16
+  - name: "gsm8k"
+    num_fewshot: 8
+    batch_size: 4
+  - name: "hellaswag"
+    num_fewshot: 10
+    batch_size: 16
+
+eval_timeout: 3600  # 1 hour per benchmark
+skip_cache: false

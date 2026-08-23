@@ -1,0 +1,10 @@
+{
+  "total_pairs": 5000,
+  "train_pairs": 4000,
+  "val_pairs": 1000,
+  "avg_tokens": 182.018,
+  "max_tokens": 1579,
+  "min_tokens": 15,
+  "avg_instruction_length": 21.9332,
+  "avg_response_length": 156.0848
+}

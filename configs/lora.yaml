@@ -1,0 +1,14 @@
+lora_configs:
+  - rank: 4
+    alpha: 8
+    dropout: 0.05
+  - rank: 8
+    alpha: 16
+    dropout: 0.05
+  - rank: 16
+    alpha: 32
+    dropout: 0.05
+
+lora_target_modules: ["q_proj", "v_proj", "k_proj", "o_proj"]
+lora_bias: "none"
+task_type: "CAUSAL_LM"

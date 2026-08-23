@@ -1,0 +1,9 @@
+quantization_method: "gptq"  # or "bnb_int4"
+gptq_config:
+  bits: 4
+  group_size: 128
+  desc_act: false
+  exllama: true
+  version: 0
+calibration_dataset: "wikitext"
+calibration_samples: 128
