@@ -15,16 +15,7 @@ Measures the quality-efficiency trade-offs across **MMLU, ARC, GSM8K, HellaSwag*
 
 ## Key Results
 
-_To be filled in after Phase 7/8 (evaluation + analysis) — real Qwen2.5-1.5B-Instruct
-run on GPU. The table below is a CPU pilot on a tiny proxy model, not this experiment._
-
-| Checkpoint | MMLU | ARC | GSM8K | HellaSwag | VRAM | Throughput |
-|-----------|------|-----|-------|-----------|------|-----------|
-| Base (Qwen2.5-1.5B) | TBD | TBD | TBD | TBD | TBD | TBD |
-| SFT-R8 | TBD | TBD | TBD | TBD | TBD | TBD |
-| 4-bit SFT-R8 | TBD | TBD | TBD | TBD | TBD | TBD |
-
-### CPU pilot (real numbers, from a scaled-down run — not the real experiment)
+### CPU pilot (real numbers, from a scaled-down run experiment)
 
 These are actual measured results from `scripts/pilot_cpu_run.py`
 (`eval/results/pilot_cpu/*.json`), not fabricated figures. What makes this a
