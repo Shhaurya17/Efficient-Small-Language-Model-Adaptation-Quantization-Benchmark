@@ -24,14 +24,16 @@ run on GPU. The table below is a CPU pilot on a tiny proxy model, not this exper
 | SFT-R8 | TBD | TBD | TBD | TBD | TBD | TBD |
 | 4-bit SFT-R8 | TBD | TBD | TBD | TBD | TBD | TBD |
 
-### CPU pilot (placeholder numbers — not the real experiment)
+### CPU pilot (real numbers, from a scaled-down run — not the real experiment)
 
-No GPU is available on the dev machine, so this pilot substitutes
-HuggingFaceTB/SmolLM2-135M-Instruct for Qwen2.5-1.5B-Instruct, int8 dynamic
-quantization for GPTQ, and a 10-step/80-example training run, just to exercise
-the pipeline end-to-end and produce something to look at. Full deviations, a
-lm-eval/quantization incompatibility hit along the way, and two real bugs found
-in the configs are documented in
+These are actual measured results from `scripts/pilot_cpu_run.py`
+(`eval/results/pilot_cpu/*.json`), not fabricated figures. What makes this a
+"pilot" rather than the real experiment is the *setup*: no GPU is available on
+the dev machine, so it substitutes HuggingFaceTB/SmolLM2-135M-Instruct for
+Qwen2.5-1.5B-Instruct, int8 dynamic quantization for GPTQ, and a
+10-step/80-example training run, just to exercise the pipeline end-to-end.
+Full deviations, a lm-eval/quantization incompatibility hit along the way, and
+two real bugs found in the configs are documented in
 [`reports/pilot_cpu_findings.md`](reports/pilot_cpu_findings.md).
 
 | Checkpoint | ARC-Easy (0-shot, n=15) | HellaSwag (0-shot, n=15) | Model size | Process RAM | Latency | Throughput |
